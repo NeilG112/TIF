@@ -1,0 +1,22 @@
+﻿# Environment variables
+.env
+.env.local
+.env.production
+
+# Firebase config (sensitive)
+firebase-config.js
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+*~
+
+# Temporary files
+*.tmp

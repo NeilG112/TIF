@@ -1,0 +1,15 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="600" fill="#1e293b"/>
+  <rect x="50" y="50" width="700" height="500" rx="20" fill="#334155" stroke="#64748b" stroke-width="2"/>
+  <circle cx="200" cy="200" r="80" fill="#14b8a6" opacity="0.8"/>
+  <circle cx="400" cy="200" r="60" fill="#8b5cf6" opacity="0.8"/>
+  <circle cx="600" cy="200" r="70" fill="#f59e0b" opacity="0.8"/>
+  <circle cx="300" cy="350" r="50" fill="#ef4444" opacity="0.8"/>
+  <circle cx="500" cy="350" r="65" fill="#10b981" opacity="0.8"/>
+  <text x="400" y="480" text-anchor="middle" fill="#94a3b8" font-family="Inter, sans-serif" font-size="24" font-weight="600">
+    Portfolio Visualization
+  </text>
+  <text x="400" y="520" text-anchor="middle" fill="#64748b" font-family="Inter, sans-serif" font-size="16">
+    Diversified Investment Strategy
+  </text>
+</svg>

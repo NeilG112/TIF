@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloud Admin Panel - Registered Emails</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .admin-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .admin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .status-indicator {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .status-online {
+            background: #10b981;
+            color: white;
+        }
+        .status-offline {
+            background: #ef4444;
+            color: white;
+        }
+        .status-cloud {
+            background: #3b82f6;
+            color: white;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .stat-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #667eea;
+        }
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        .control-panel {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .control-buttons {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn-primary {
+            background: #667eea;
+            color: white;
+        }
+        .btn-primary:hover {
+            background: #5a6fd8;
+        }
+        .btn-success {
+            background: #10b981;
+            color: white;
+        }
+        .btn-success:hover {
+            background: #059669;
+        }
+        .btn-danger {
+            background: #ef4444;
+            color: white;
+        }
+        .btn-danger:hover {
+            background: #dc2626;
+        }
+        .btn-warning {
+            background: #f59e0b;
+            color: white;
+        }
+        .btn-warning:hover {
+            background: #d97706;
+        }
+        .emails-table {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .table-header {
+            background: #f8f9fa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e1e5e9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .emails-list {
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .email-item {
+            padding: 15px 20px;
+            border-bottom: 1px solid #e1e5e9;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .email-item:last-child {
+            border-bottom: none;
+        }
+        .email-info {
+            flex: 1;
+        }
+        .email-address {
+            font-weight: 500;
+            color: #333;
+        }
+        .email-date {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 2px;
+        }
+        .email-source {
+            font-size: 0.75rem;
+            color: #999;
+            margin-top: 2px;
+        }
+        .email-actions {
+            display: flex;
+            gap: 8px;
+        }
+        .no-emails {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        .sync-status {
+            background: #e0f2fe;
+            border: 1px solid #0ea5e9;
+            padding: 10px;
+            border-radius: 6px;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .loading {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>☁️ Cloud Admin Panel</h1>
+            <p>Manage Registered Email Addresses from Anywhere</p>
+            <div id="statusIndicator" class="status-indicator status-offline">
+                🔴 Offline - Local Storage Only
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-number" id="totalEmails">0</div>
+                <div class="stat-label">Total Registrations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="todayEmails">0</div>
+                <div class="stat-label">Today's Registrations</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="cloudEmails">0</div>
+                <div class="stat-label">Cloud Sync Status</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="localEmails">0</div>
+                <div class="stat-label">Local Storage</div>
+            </div>
+        </div>
+
+        <div class="control-panel">
+            <h3>🛠️ Control Panel</h3>
+            <div class="sync-status" id="syncStatus">
+                <strong>Sync Status:</strong> <span id="syncStatusText">Checking...</span>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-primary" onclick="syncWithCloud()">🔄 Sync with Cloud</button>
+                <button class="btn btn-success" onclick="exportAsJSON()">📄 Export JSON</button>
+                <button class="btn btn-success" onclick="exportAsCSV()">📊 Export CSV</button>
+                <button class="btn btn-warning" onclick="copyToClipboard()">📋 Copy All Emails</button>
+                <button class="btn btn-primary" onclick="refreshData()">🔄 Refresh Data</button>
+                <a href="index.html" class="btn btn-primary">🏠 Back to Registration</a>
+                <button class="btn btn-danger" onclick="clearAllData()">🗑️ Clear All Data</button>
+            </div>
+        </div>
+
+        <div class="emails-table">
+            <div class="table-header">
+                <h3>📧 Registered Emails</h3>
+                <div>
+                    <strong>Total:</strong> <span id="emailCount">0</span> emails
+                </div>
+            </div>
+            <div class="emails-list" id="emailsList">
+                <div class="no-emails">
+                    <p>No registered emails found.</p>
+                    <p>Go to the <a href="index.html">registration page</a> to add some emails.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+    <script src="firebase-config.js"></script>
+    <script>
+        let registeredEmails = [];
+        let isOnline = navigator.onLine;
+        let firebaseEnabled = false;
+
+        async function initializeAdmin() {
+            // Check online status
+            updateOnlineStatus();
+            
+            // Listen for online/offline events
+            window.addEventListener('online', () => {
+                isOnline = true;
+                updateOnlineStatus();
+                syncWithCloud();
+            });
+            window.addEventListener('offline', () => {
+                isOnline = false;
+                updateOnlineStatus();
+            });
+
+            // Initialize Firebase
+            await initializeFirebase();
+            
+            // Load data
+            await loadData();
+        }
+
+        function updateOnlineStatus() {
+            const statusEl = document.getElementById('statusIndicator');
+            if (firebaseEnabled && isOnline) {
+                statusEl.textContent = '🟢 Online - Cloud Sync Active';
+                statusEl.className = 'status-indicator status-cloud';
+            } else if (isOnline) {
+                statusEl.textContent = '🟡 Online - Local Storage Only';
+                statusEl.className = 'status-indicator status-online';
+            } else {
+                statusEl.textContent = '🔴 Offline - Local Storage Only';
+                statusEl.className = 'status-indicator status-offline';
+            }
+        }
+
+        async function initializeFirebase() {
+            try {
+                if (window.firebaseApp && window.firebaseDb) {
+                    firebaseEnabled = true;
+                    console.log('Firebase initialized successfully');
+                    updateOnlineStatus();
+                } else {
+                    console.log('Firebase not configured - using local storage only');
+                    firebaseEnabled = false;
+                }
+            } catch (error) {
+                console.error('Firebase initialization failed:', error);
+                firebaseEnabled = false;
+            }
+        }
+
+        async function loadData() {
+            // Load from local storage
+            const localData = loadFromLocalStorage();
+            
+            // Load from cloud if available
+            let cloudData = [];
+            if (firebaseEnabled && isOnline) {
+                try {
+                    cloudData = await loadFromCloud();
+                } catch (error) {
+                    console.error('Error loading from cloud:', error);
+                }
+            }
+            
+            // Merge data
+            registeredEmails = mergeData(localData, cloudData);
+            
+            // Update UI
+            updateStats();
+            renderEmails();
+            updateSyncStatus();
+        }
+
+        function loadFromLocalStorage() {
+            try {
+                const stored = localStorage.getItem('registeredEmails');
+                return stored ? JSON.parse(stored) : [];
+            } catch (error) {
+                console.error('Error loading from local storage:', error);
+                return [];
+            }
+        }
+
+        async function loadFromCloud() {
+            if (!firebaseEnabled) return [];
+            
+            try {
+                const collectionRef = window.firebaseCollection(window.firebaseDb, 'registeredEmails');
+                const querySnapshot = await window.firebaseGetDocs(collectionRef);
+                const cloudData = [];
+                
+                querySnapshot.forEach((doc) => {
+                    cloudData.push({ id: doc.id, ...doc.data(), source: 'cloud' });
+                });
+                
+                return cloudData;
+            } catch (error) {
+                console.error('Error loading from cloud:', error);
+                return [];
+            }
+        }
+
+        function mergeData(localData, cloudData) {
+            const dataMap = new Map();
+            
+            // Add local data
+            localData.forEach(item => {
+                dataMap.set(item.email.toLowerCase(), { ...item, source: 'local' });
+            });
+            
+            // Add/update with cloud data
+            cloudData.forEach(item => {
+                const existing = dataMap.get(item.email.toLowerCase());
+                if (!existing || new Date(item.registeredAt) > new Date(existing.registeredAt)) {
+                    dataMap.set(item.email.toLowerCase(), item);
+                }
+            });
+            
+            return Array.from(dataMap.values()).sort((a, b) => 
+                new Date(b.registeredAt) - new Date(a.registeredAt)
+            );
+        }
+
+        function updateStats() {
+            const total = registeredEmails.length;
+            const today = new Date().toDateString();
+            const cloudCount = registeredEmails.filter(email => email.source === 'cloud').length;
+            const localCount = registeredEmails.filter(email => email.source === 'local').length;
+            
+            const todayCount = registeredEmails.filter(email => 
+                new Date(email.registeredAt).toDateString() === today
+            ).length;
+
+            document.getElementById('totalEmails').textContent = total;
+            document.getElementById('todayEmails').textContent = todayCount;
+            document.getElementById('cloudEmails').textContent = firebaseEnabled ? cloudCount : 'N/A';
+            document.getElementById('localEmails').textContent = localCount;
+            document.getElementById('emailCount').textContent = total;
+        }
+
+        function updateSyncStatus() {
+            const statusText = document.getElementById('syncStatusText');
+            if (firebaseEnabled && isOnline) {
+                statusText.textContent = 'Cloud sync active - Data synced with Firebase';
+            } else if (isOnline) {
+                statusText.textContent = 'Local storage only - Firebase not configured';
+            } else {
+                statusText.textContent = 'Offline - Using cached data';
+            }
+        }
+
+        function renderEmails() {
+            const container = document.getElementById('emailsList');
+            
+            if (registeredEmails.length === 0) {
+                container.innerHTML = `
+                    <div class="no-emails">
+                        <p>No registered emails found.</p>
+                        <p>Go to the <a href="index.html">registration page</a> to add some emails.</p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = registeredEmails.map(email => `
+                <div class="email-item">
+                    <div class="email-info">
+                        <div class="email-address">${email.email}</div>
+                        <div class="email-date">${formatDate(email.registeredAt)}</div>
+                        <div class="email-source">Source: ${email.source || 'unknown'}</div>
+                    </div>
+                    <div class="email-actions">
+                        <button class="btn btn-primary" onclick="copyEmail('${email.email}')">📋</button>
+                        <button class="btn btn-danger" onclick="deleteEmail('${email.id}')">🗑️</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit'
+            });
+        }
+
+        async function syncWithCloud() {
+            if (!firebaseEnabled) {
+                alert('Firebase not configured. Please set up your Firebase credentials first.');
+                return;
+            }
+
+            if (!isOnline) {
+                alert('You are offline. Please check your internet connection.');
+                return;
+            }
+
+            try {
+                document.body.classList.add('loading');
+                await loadData();
+                alert('Data synced with cloud successfully!');
+            } catch (error) {
+                alert('Error syncing with cloud: ' + error.message);
+            } finally {
+                document.body.classList.remove('loading');
+            }
+        }
+
+        function exportAsJSON() {
+            const dataStr = JSON.stringify(registeredEmails, null, 2);
+            downloadFile(dataStr, 'registered-emails.json', 'application/json');
+        }
+
+        function exportAsCSV() {
+            const headers = ['Email', 'Registration Date', 'Source', 'ID'];
+            const csvContent = [
+                headers.join(','),
+                ...registeredEmails.map(email => [
+                    `"${email.email}"`,
+                    `"${email.registeredAt}"`,
+                    `"${email.source || 'unknown'}"`,
+                    `"${email.id}"`
+                ].join(','))
+            ].join('\n');
+            
+            downloadFile(csvContent, 'registered-emails.csv', 'text/csv');
+        }
+
+        function copyToClipboard() {
+            const emails = registeredEmails.map(email => email.email).join('\n');
+            navigator.clipboard.writeText(emails).then(() => {
+                alert('All emails copied to clipboard!');
+            }).catch(() => {
+                alert('Failed to copy to clipboard');
+            });
+        }
+
+        function downloadFile(content, filename, mimeType) {
+            const blob = new Blob([content], { type: mimeType });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function copyEmail(email) {
+            navigator.clipboard.writeText(email).then(() => {
+                alert('Email copied to clipboard!');
+            });
+        }
+
+        function deleteEmail(id) {
+            if (confirm('Are you sure you want to delete this email?')) {
+                registeredEmails = registeredEmails.filter(email => email.id !== id);
+                localStorage.setItem('registeredEmails', JSON.stringify(registeredEmails));
+                loadData();
+            }
+        }
+
+        function clearAllData() {
+            if (confirm('Are you sure you want to delete ALL registered emails? This cannot be undone!')) {
+                localStorage.removeItem('registeredEmails');
+                registeredEmails = [];
+                loadData();
+            }
+        }
+
+        function refreshData() {
+            loadData();
+        }
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', initializeAdmin);
+    </script>
+</body>
+</html>
