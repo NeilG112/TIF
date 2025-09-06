@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import { db } from './firebase';
+import { collection, addDoc, getDocs } from 'firebase/firestore';
 
 const LandingPage = () => {
   const [email, setEmail] = useState('');
@@ -6,46 +8,58 @@ const LandingPage = () => {
   const [showSuccess, setShowSuccess] = useState(false);
   const [registeredEmails, setRegisteredEmails] = useState([]);
 
-  // Load registered emails from localStorage on component mount
+  // Load registered emails from Firestore on component mount
   useEffect(() => {
-    const storedEmails = localStorage.getItem('registeredEmails');
-    if (storedEmails) {
-      setRegisteredEmails(JSON.parse(storedEmails));
-    }
+    const fetchEmails = async () => {
+      try {
+        const querySnapshot = await getDocs(collection(db, 'registeredEmails'));
+        const emails = [];
+        querySnapshot.forEach((docSnap) => {
+          emails.push({ id: docSnap.id, ...docSnap.data() });
+        });
+        setRegisteredEmails(emails);
+      } catch (error) {
+        setRegisteredEmails([]);
+      }
+    };
+    fetchEmails();
   }, []);
 
   const handleEmailSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!email.trim()) return;
-    
     setIsLoading(true);
-    
-    // Simulate API call delay
-    setTimeout(() => {
-      const userData = {
-        email: email.trim(),
+    setShowSuccess(false);
+    try {
+      // Basic email validation
+      if (!email || !/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+        alert('Please enter a valid email address.');
+        setIsLoading(false);
+        return;
+      }
+      // Check for duplicate
+      if (registeredEmails.some(e => e.email === email)) {
+        alert('This email is already registered.');
+        setIsLoading(false);
+        return;
+      }
+      // Add to Firestore
+      await addDoc(collection(db, 'registeredEmails'), {
+        email,
         registeredAt: new Date().toISOString(),
-        id: Date.now().toString()
-      };
-      
-      // Add to registered emails
-      const updatedEmails = [...registeredEmails, userData];
-      setRegisteredEmails(updatedEmails);
-      
-      // Save to localStorage
-      localStorage.setItem('registeredEmails', JSON.stringify(updatedEmails));
-      
-      // Show success message
+      });
       setShowSuccess(true);
       setEmail('');
-      setIsLoading(false);
-      
-      // Hide success message after 3 seconds
-      setTimeout(() => {
-        setShowSuccess(false);
-      }, 3000);
-    }, 1500);
+      // Refresh list
+      const querySnapshot = await getDocs(collection(db, 'registeredEmails'));
+      const emails = [];
+      querySnapshot.forEach((docSnap) => {
+        emails.push({ id: docSnap.id, ...docSnap.data() });
+      });
+      setRegisteredEmails(emails);
+    } catch (error) {
+      alert('Failed to register email.');
+    }
+    setIsLoading(false);
   };
 
   return (
@@ -73,7 +87,7 @@ const LandingPage = () => {
             </div>
             <div className="relative">
               <div className="bg-gradient-to-br from-teal-500/20 to-purple-500/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
-                <img src="/placeholder.svg" alt="Investment visualization" className="w-full h-80 object-cover rounded-2xl" />
+                <img src="/TIF/placeholder.svg" alt="Investment visualization" className="w-full h-80 object-cover rounded-2xl" />
               </div>
             </div>
           </div>
