@@ -5,7 +5,7 @@ const founders = [
     name: "Archisman Ganguly",
     role: "Co-Founder & Developer",
     img: "/placeholder.svg",
-    bio: "Archisman is the co-founder of Avori Labs, developing blockchain-powered investment products that merge traditional finance with decentralized innovation.",
+  bio: "Archisman is the co-founder of Doraemi Labs, developing blockchain-powered investment products that merge traditional finance with decentralized innovation.",
     linkedin: "https://linkedin.com/in/archisman-ganguly",
     instagram: "https://www.instagram.com/neil112n/"
   },
@@ -13,7 +13,7 @@ const founders = [
     name: "Bruno Kreuzhage",
     role: "Co-Founder",
     img: "/placeholder.svg",
-    bio: "Bruno is a co-founder of Avori Labs, passionate about bridging the gap between technology and finance. He brings a global perspective and operational expertise.",
+  bio: "Bruno is a co-founder of Doraemi Labs, passionate about bridging the gap between technology and finance. He brings a global perspective and operational expertise.",
     linkedin: "https://linkedin.com/in/bruno-kreuzhage",
     instagram: ""
   },
@@ -21,7 +21,7 @@ const founders = [
     name: "Ritvij Kansal",
     role: "Co-Founder",
     img: "/placeholder.svg",
-    bio: "Dev, Visionary, Enthusiast (contextually speaking). Co-founder of Avori Labs and doing this for the love of the game.",
+  bio: "Dev, Visionary, Enthusiast (contextually speaking). Co-founder of Doraemi Labs and doing this for the love of the game.",
     linkedin: "https://linkedin.com/in/ritvijk",
     xcom: "https://x.com/ritvijchirps",
     instagram: "https://www.instagram.com/ritvij2629/"
@@ -33,7 +33,7 @@ const iconClass = "w-5 h-5 text-[#8892B0] hover:text-[#64FFDA] transition-colors
 export default function FoundersPage() {
   return (
     <div className="min-h-screen bg-[#0A192F] py-16 px-4 flex flex-col items-center">
-      <h1 className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-[#64FFDA] to-[#CCD6F6] bg-clip-text text-transparent">Avori Labs</h1>
+  <h1 className="text-4xl font-bold mb-4 text-center bg-gradient-to-r from-[#64FFDA] to-[#CCD6F6] bg-clip-text text-transparent">Doraemi Labs</h1>
       <div className="text-2xl font-bold text-[#CCD6F6] mb-12 text-center">Meet the Founders</div>
       <div className="w-full max-w-2xl flex flex-col gap-8">
         {founders.map((f, i) => (
