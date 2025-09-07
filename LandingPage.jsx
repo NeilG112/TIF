@@ -63,30 +63,30 @@ const LandingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-navy-900 to-slate-800 text-white">
+    <div className="min-h-screen bg-[#0A192F] text-white">
       {/* Hero Section */}
       <section className="relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-8 animate-fade-in">
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight text-[#CCD6F6]">
                 Invest Smarter. One Token.{' '}
-                <span className="bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-[#64FFDA] to-[#64FFDA] bg-clip-text text-transparent">
                   Total Diversification.
                 </span>
               </h1>
-              <p className="text-xl text-gray-300 leading-relaxed max-w-2xl">
-                $FUND gives you simple, diversified exposure to crypto, stocks, bonds, and commodities — all in one token.
+              <p className="text-xl text-[#8892B0] leading-relaxed max-w-2xl">
+                $AVORI gives you simple, diversified exposure to crypto, stocks, bonds, and commodities — all in one token.
               </p>
               <button 
                 onClick={() => document.getElementById('email-capture').scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-600 hover:to-purple-700 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                className="bg-transparent border-2 border-[#64FFDA] text-[#64FFDA] hover:bg-[#64FFDA]/10 font-semibold py-4 px-8 rounded-md transition-all duration-300 transform hover:scale-105"
               >
                 Join the Waitlist
               </button>
             </div>
             <div className="relative">
-              <div className="bg-gradient-to-br from-teal-500/20 to-purple-500/20 rounded-3xl p-8 backdrop-blur-sm border border-white/10">
+              <div className="bg-[#112240] rounded-3xl p-8 backdrop-blur-sm border border-[#64FFDA]/20">
                 <img src="/TIF/placeholder.svg" alt="Investment visualization" className="w-full h-80 object-cover rounded-2xl" />
               </div>
             </div>
@@ -94,64 +94,38 @@ const LandingPage = () => {
         </div>
       </section>
 
-      {/* Problem & Solution Section */}
-      <section className="py-20 bg-slate-800/50">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold mb-6">The Problem</h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                Traditional investing requires managing multiple accounts, understanding complex financial instruments, and constantly rebalancing portfolios. Most people either don't have the time, knowledge, or resources to build a truly diversified investment strategy.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <h2 className="text-3xl font-bold mb-6">The Solution</h2>
-              <p className="text-gray-300 text-lg leading-relaxed">
-                $FUND simplifies everything. One token gives you instant exposure to a professionally managed, diversified portfolio across crypto, traditional stocks, bonds, and commodities. No complex trading, no rebalancing, no stress.
-              </p>
-              <div className="bg-slate-700 p-6 rounded-2xl">
-                <h3 className="font-semibold mb-4">Portfolio Diversification</h3>
-                <div className="bg-gray-700 w-full h-32 rounded flex items-center justify-center">
-                  <span className="text-gray-400">Pie Chart Placeholder</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* How It Works Section */}
-      <section className="py-20">
+      <section id="how-it-works" className="py-20 bg-[#112240]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">How It Works</h2>
-            <p className="text-xl text-gray-300">Simple, transparent, and accessible to everyone</p>
+            <h2 className="text-4xl font-bold mb-4 text-[#CCD6F6]">How It Works</h2>
+            <p className="text-xl text-[#8892B0]">Simple, transparent, and accessible to everyone</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-slate-800/50 p-8 rounded-2xl border border-white/10 hover:border-teal-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="bg-teal-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">1</span>
+            <div className="bg-[#0A192F] p-8 rounded-md border border-[#64FFDA]/10 hover:border-[#64FFDA]/50 transition-all duration-300 hover:transform hover:translate-y-[-8px]">
+              <div className="bg-[#112240] w-16 h-16 rounded-md flex items-center justify-center mb-6 border border-[#64FFDA]/20">
+                <span className="text-2xl text-[#64FFDA] font-mono">01</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Buy $FUND</h3>
-              <p className="text-gray-300">
-                Purchase $FUND tokens with any major cryptocurrency or fiat currency through our secure platform.
+              <h3 className="text-xl font-semibold mb-4 text-[#64FFDA]">Buy $AVORI</h3>
+              <p className="text-[#8892B0]">
+                Purchase $AVORI tokens with any major cryptocurrency or fiat currency through our secure platform.
               </p>
             </div>
-            <div className="bg-slate-800/50 p-8 rounded-2xl border border-white/10 hover:border-purple-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="bg-purple-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">2</span>
+            <div className="bg-[#0A192F] p-8 rounded-md border border-[#64FFDA]/10 hover:border-[#64FFDA]/50 transition-all duration-300 hover:transform hover:translate-y-[-8px]">
+              <div className="bg-[#112240] w-16 h-16 rounded-md flex items-center justify-center mb-6 border border-[#64FFDA]/20">
+                <span className="text-2xl text-[#64FFDA] font-mono">02</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Automatic Diversification</h3>
-              <p className="text-gray-300">
-                Your investment is automatically allocated across crypto, stocks, bonds, and commodities by our AI-powered system.
+              <h3 className="text-xl font-semibold mb-4 text-[#64FFDA]">Automatic Diversification</h3>
+              <p className="text-[#8892B0]">
+                Your investment is automatically allocated across crypto, stocks, bonds, and commodities through our advanced portfolio management system.
               </p>
             </div>
-            <div className="bg-slate-800/50 p-8 rounded-2xl border border-white/10 hover:border-teal-500/50 transition-all duration-300 hover:transform hover:scale-105">
-              <div className="bg-gradient-to-r from-teal-500 to-purple-500 w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                <span className="text-2xl">3</span>
+            <div className="bg-[#0A192F] p-8 rounded-md border border-[#64FFDA]/10 hover:border-[#64FFDA]/50 transition-all duration-300 hover:transform hover:translate-y-[-8px]">
+              <div className="bg-[#112240] w-16 h-16 rounded-md flex items-center justify-center mb-6 border border-[#64FFDA]/20">
+                <span className="text-2xl text-[#64FFDA] font-mono">03</span>
               </div>
-              <h3 className="text-xl font-semibold mb-4">Track & Redeem</h3>
-              <p className="text-gray-300">
+              <h3 className="text-xl font-semibold mb-4 text-[#64FFDA]">Track & Redeem</h3>
+              <p className="text-[#8892B0]">
                 Monitor your portfolio performance in real-time and redeem your tokens for the underlying assets anytime.
               </p>
             </div>
@@ -160,69 +134,69 @@ const LandingPage = () => {
       </section>
 
       {/* Key Benefits Section */}
-      <section className="py-20 bg-slate-800/30">
+      <section id="benefits" className="py-20 bg-[#0A192F]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Why Choose $FUND?</h2>
-            <p className="text-xl text-gray-300">Built for the modern investor</p>
+            <h2 className="text-4xl font-bold mb-4 text-[#CCD6F6]">Why Choose $AVORI?</h2>
+            <p className="text-xl text-[#8892B0]">Built for the modern investor</p>
           </div>
-          <div className="bg-slate-800/50 p-8 rounded-2xl border border-white/10">
+          <div className="bg-[#112240] p-8 rounded-md border border-[#64FFDA]/10">
             <div className="grid md:grid-cols-2 gap-8">
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-teal-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Instant Diversification</h3>
-                    <p className="text-gray-300">Get exposure to multiple asset classes with a single purchase</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">Instant Diversification</h3>
+                    <p className="text-[#8892B0]">Get exposure to multiple asset classes with a single purchase</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-teal-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Professional Management</h3>
-                    <p className="text-gray-300">AI-powered rebalancing and risk management</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">Professional Management</h3>
+                    <p className="text-[#8892B0]">Expert rebalancing and risk management strategies</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-teal-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Transparent & Secure</h3>
-                    <p className="text-gray-300">All transactions and holdings are publicly verifiable on-chain</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">Transparent & Secure</h3>
+                    <p className="text-[#8892B0]">All transactions and holdings are publicly verifiable on-chain</p>
                   </div>
                 </div>
               </div>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Low Fees</h3>
-                    <p className="text-gray-300">Competitive management fees with no hidden costs</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">Low Fees</h3>
+                    <p className="text-[#8892B0]">Competitive management fees with no hidden costs</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">24/7 Trading</h3>
-                    <p className="text-gray-300">Buy, sell, or redeem your tokens anytime, anywhere</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">24/7 Trading</h3>
+                    <p className="text-[#8892B0]">Buy, sell, or redeem your tokens anytime, anywhere</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
-                  <div className="bg-purple-500 w-6 h-6 rounded-full flex items-center justify-center mt-1">
-                    <span className="text-white text-sm">✓</span>
+                  <div className="bg-[#0A192F] w-6 h-6 rounded-md flex items-center justify-center mt-1 border border-[#64FFDA]/20">
+                    <span className="text-[#64FFDA] text-sm font-bold">✓</span>
                   </div>
                   <div>
-                    <h3 className="font-semibold mb-2">Scalable</h3>
-                    <p className="text-gray-300">From €100 to €1M+ - same simple process</p>
+                    <h3 className="font-semibold mb-2 text-[#CCD6F6]">Flexible</h3>
+                    <p className="text-[#8892B0]">From €100 to €1M+ - same simple process</p>
                   </div>
                 </div>
               </div>
@@ -232,39 +206,53 @@ const LandingPage = () => {
       </section>
 
       {/* Tokenomics Preview Section */}
-      <section className="py-20">
+      <section id="tokenomics" className="py-20 bg-[#112240]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Tokenomics Preview</h2>
-            <p className="text-xl text-gray-300">Simple, transparent, and designed for growth</p>
+            <h2 className="text-4xl font-bold mb-4 text-[#CCD6F6]">Tokenomics: How It Works</h2>
+            <p className="text-xl text-[#8892B0]">A simple step-by-step journey for every investor</p>
           </div>
-          <div className="bg-gradient-to-br from-slate-800 to-slate-700 p-8 rounded-2xl border border-white/10">
-            <div className="grid md:grid-cols-2 gap-8 items-center">
-              <div className="space-y-6">
-                <h3 className="text-2xl font-semibold">How $FUND Works</h3>
-                <p className="text-gray-300">
-                  Each $FUND token represents a share of our diversified portfolio. As the underlying assets appreciate, 
-                  so does the value of your tokens.
-                </p>
-                <div className="bg-teal-500/20 p-4 rounded-xl border border-teal-500/30">
-                  <p className="text-sm text-teal-300 mb-2">Example Investment</p>
-                  <p className="text-2xl font-bold">€1,000 → €1,100</p>
-                  <p className="text-sm text-gray-400">10% portfolio growth</p>
+          <div className="bg-[#0A192F] p-8 rounded-md border border-[#64FFDA]/20">
+            <ol className="space-y-6 text-left max-w-2xl mx-auto">
+              <li className="flex items-start">
+                <span className="bg-[#112240] text-[#64FFDA] rounded-md w-8 h-8 flex items-center justify-center font-bold mr-4 border border-[#64FFDA]/20">1</span>
+                <div className="text-[#8892B0]">
+                  <span className="font-semibold text-[#64FFDA]">Deposit:</span> Fund your account with crypto or fiat.
                 </div>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-[#112240] text-[#64FFDA] rounded-md w-8 h-8 flex items-center justify-center font-bold mr-4 border border-[#64FFDA]/20">2</span>
+                <div className="text-[#8892B0]">
+                  <span className="font-semibold text-[#64FFDA]">Tokens Minted:</span> Instantly receive $AVORI tokens representing your share of the diversified portfolio.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-[#112240] text-[#64FFDA] rounded-md w-8 h-8 flex items-center justify-center font-bold mr-4 border border-[#64FFDA]/20">3</span>
+                <div className="text-[#8892B0]">
+                  <span className="font-semibold text-[#64FFDA]">NAV Updates:</span> The Net Asset Value of your tokens updates in real-time as the portfolio grows.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-[#112240] text-[#64FFDA] rounded-md w-8 h-8 flex items-center justify-center font-bold mr-4 border border-[#64FFDA]/20">4</span>
+                <div className="text-[#8892B0]">
+                  <span className="font-semibold text-[#64FFDA]">Redeem:</span> Swap your $AVORI tokens back for crypto or fiat at any time.
+                </div>
+              </li>
+              <li className="flex items-start">
+                <span className="bg-[#112240] text-[#64FFDA] rounded-md w-8 h-8 flex items-center justify-center font-bold mr-4 border border-[#64FFDA]/20">5</span>
+                <div className="text-[#8892B0]">
+                  <span className="font-semibold text-[#64FFDA]">Fee Split:</span> A small fee (0.5% management, 0.1% redemption) is split between Avori Labs and the protocol treasury.
+                </div>
+              </li>
+            </ol>
+            <div className="mt-8 flex flex-col md:flex-row gap-4 justify-center">
+              <div className="flex-1 bg-[#112240] rounded-md p-4 flex flex-col items-center border border-[#64FFDA]/20">
+                <span className="text-[#8892B0]">Management Fee</span>
+                <span className="font-semibold text-[#64FFDA]">0.5% annually</span>
               </div>
-              <div className="space-y-4">
-                <div className="flex justify-between items-center p-4 bg-slate-600/50 rounded-lg">
-                  <span className="text-gray-300">Total Supply</span>
-                  <span className="font-semibold">1,000,000,000 $FUND</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-slate-600/50 rounded-lg">
-                  <span className="text-gray-300">Management Fee</span>
-                  <span className="font-semibold text-teal-400">0.5% annually</span>
-                </div>
-                <div className="flex justify-between items-center p-4 bg-slate-600/50 rounded-lg">
-                  <span className="text-gray-300">Redemption Fee</span>
-                  <span className="font-semibold text-purple-400">0.1%</span>
-                </div>
+              <div className="flex-1 bg-[#112240] rounded-md p-4 flex flex-col items-center border border-[#64FFDA]/20">
+                <span className="text-[#8892B0]">Redemption Fee</span>
+                <span className="font-semibold text-[#64FFDA]">0.1%</span>
               </div>
             </div>
           </div>
@@ -272,36 +260,36 @@ const LandingPage = () => {
       </section>
 
       {/* Roadmap Section */}
-      <section className="py-20 bg-slate-800/30">
+      <section id="roadmap" className="py-20 bg-[#0A192F]">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold mb-4">Roadmap</h2>
-            <p className="text-xl text-gray-300">Our journey to revolutionize investing</p>
+            <h2 className="text-4xl font-bold mb-4 text-[#CCD6F6]">Roadmap</h2>
+            <p className="text-xl text-[#8892B0]">Our journey to revolutionize investing</p>
           </div>
           <div className="relative">
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-gradient-to-b from-teal-500 to-purple-500"></div>
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 h-full bg-[#64FFDA]/20"></div>
             <div className="space-y-12">
               <div className="relative flex items-center">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-teal-500 rounded-full border-4 border-slate-900"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#64FFDA] rounded-md border-2 border-[#112240]"></div>
                 <div className="w-1/2 pr-8 text-right">
-                  <h3 className="text-xl font-semibold mb-2">Phase 1: Foundation</h3>
-                  <p className="text-gray-300">Q1 2024 - Core platform development, smart contract deployment, and initial portfolio setup</p>
+                  <h3 className="text-xl font-semibold mb-2 text-[#64FFDA]">Phase 1: Foundation</h3>
+                  <p className="text-[#8892B0]">Q3-Q4 2025 - Core platform development, smart contract deployment, and initial portfolio setup</p>
                 </div>
                 <div className="w-1/2 pl-8"></div>
               </div>
               <div className="relative flex items-center">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-purple-500 rounded-full border-4 border-slate-900"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#64FFDA] rounded-md border-2 border-[#112240]"></div>
                 <div className="w-1/2 pr-8"></div>
                 <div className="w-1/2 pl-8">
-                  <h3 className="text-xl font-semibold mb-2">Phase 2: Launch</h3>
-                  <p className="text-gray-300">Q2 2024 - Public launch, major exchange listings, and community building</p>
+                  <h3 className="text-xl font-semibold mb-2 text-[#64FFDA]">Phase 2: Launch</h3>
+                  <p className="text-[#8892B0]">Q1 2026 - Public launch, major exchange listings, and community building</p>
                 </div>
               </div>
               <div className="relative flex items-center">
-                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-teal-500 to-purple-500 rounded-full border-4 border-slate-900"></div>
+                <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-[#64FFDA] rounded-md border-2 border-[#112240]"></div>
                 <div className="w-1/2 pr-8 text-right">
-                  <h3 className="text-xl font-semibold mb-2">Phase 3: Expansion</h3>
-                  <p className="text-gray-300">Q3-Q4 2024 - Advanced features, institutional partnerships, and global expansion</p>
+                  <h3 className="text-xl font-semibold mb-2 text-[#64FFDA]">Phase 3: Expansion</h3>
+                  <p className="text-[#8892B0]">Q2 2026+ - Advanced features, institutional partnerships, and global expansion</p>
                 </div>
                 <div className="w-1/2 pl-8"></div>
               </div>
@@ -311,23 +299,23 @@ const LandingPage = () => {
       </section>
 
     {/* Email Capture Section */}
-    <section id="email-capture" className="py-20 bg-gradient-to-r from-teal-500/10 to-purple-500/10">
+    <section id="email-capture" className="py-20 bg-[#112240]">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-4">Be the First to Invest in $FUND</h2>
-          <p className="text-xl text-gray-300 mb-12">
+          <h2 className="text-4xl font-bold mb-4 text-[#CCD6F6]">Be the First to Invest in $AVORI</h2>
+          <p className="text-xl text-[#8892B0] mb-12">
             Join our early access waitlist and get notified at launch.
           </p>
           
           {/* Success Message */}
           {showSuccess && (
-            <div className="max-w-md mx-auto mb-8 p-6 bg-green-500/20 border border-green-500/30 rounded-2xl">
+            <div className="max-w-md mx-auto mb-8 p-6 bg-[#0A192F] border border-[#64FFDA]/30 rounded-md">
               <div className="flex items-center justify-center mb-4">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
-                  <span className="text-white text-xl font-bold">✓</span>
+                <div className="w-12 h-12 bg-[#112240] rounded-md flex items-center justify-center border border-[#64FFDA]">
+                  <span className="text-[#64FFDA] text-xl font-bold">✓</span>
                 </div>
               </div>
-              <h3 className="text-xl font-semibold text-green-400 mb-2">Successfully Joined!</h3>
-              <p className="text-green-300">You're now on our waitlist. We'll notify you when $FUND launches!</p>
+              <h3 className="text-xl font-semibold text-[#64FFDA] mb-2">Successfully Joined!</h3>
+              <p className="text-[#8892B0]">You're now on our waitlist. We'll notify you when $AVORI launches!</p>
             </div>
           )}
           
@@ -338,18 +326,18 @@ const LandingPage = () => {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email address"
-                className="flex-1 px-6 py-4 rounded-full bg-slate-800 border border-white/20 text-white placeholder-gray-400 focus:outline-none focus:border-teal-500 focus:ring-2 focus:ring-teal-500/20"
+                className="flex-1 px-6 py-4 rounded-md bg-[#0A192F] border border-[#64FFDA]/20 text-[#CCD6F6] placeholder-[#8892B0] focus:outline-none focus:border-[#64FFDA] focus:ring-2 focus:ring-[#64FFDA]/20"
                 required
                 disabled={isLoading}
               />
               <button
                 type="submit"
                 disabled={isLoading}
-                className="bg-gradient-to-r from-teal-500 to-purple-600 hover:from-teal-600 hover:to-purple-700 disabled:from-gray-500 disabled:to-gray-600 text-white font-semibold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-xl disabled:transform-none disabled:cursor-not-allowed"
+                className="bg-transparent border-2 border-[#64FFDA] text-[#64FFDA] hover:bg-[#64FFDA]/10 font-semibold py-4 px-8 rounded-md transition-all duration-300 transform hover:translate-y-[-2px] disabled:bg-[#0A192F]/40 disabled:text-[#8892B0] disabled:border-[#8892B0] disabled:transform-none disabled:cursor-not-allowed"
               >
                 {isLoading ? (
                   <div className="flex items-center">
-                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
+                    <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-[#64FFDA] mr-2"></div>
                     Joining...
                   </div>
                 ) : (
@@ -360,65 +348,93 @@ const LandingPage = () => {
           </form>
           
           {/* Show registered count */}
-          {registeredEmails.length > 0 && (
-            <div className="mt-8 text-gray-400">
-              <p className="text-sm">
-                <span className="font-semibold text-teal-400">{registeredEmails.length}</span> people have already joined the waitlist
-              </p>
-            </div>
-          )}
+          <div className="mt-8 text-[#8892B0]">
+            <p className="text-sm">
+              <span className="font-semibold text-[#64FFDA]">{111 + registeredEmails.length}</span> people have already joined the waitlist
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-slate-900 py-12">
+      <footer className="bg-[#0A192F] py-12">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-3 gap-8">
             <div className="md:col-span-2">
-              <h3 className="text-2xl font-bold mb-4 bg-gradient-to-r from-teal-400 to-purple-500 bg-clip-text text-transparent">
-                $FUND
+              <h3 className="text-2xl font-bold mb-4 text-[#64FFDA]">
+                Avori Labs
               </h3>
-              <p className="text-gray-400 mb-6">
+              <p className="text-[#8892B0] mb-6">
                 The future of diversified investing. One token, infinite possibilities.
               </p>
               <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                  <div className="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center">T</div>
+                {/* Social icons */}
+                <a href="https://x.com/AvoriFi" target="_blank" rel="noopener noreferrer" className="text-[#8892B0] hover:text-[#64FFDA] transition-colors" title="X (Twitter)">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                  <div className="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center">D</div>
+                <a href="https://instagram.com/AvoriFi" target="_blank" rel="noopener noreferrer" className="text-[#8892B0] hover:text-[#64FFDA] transition-colors" title="Instagram">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                  </svg>
                 </a>
-                <a href="#" className="text-gray-400 hover:text-teal-400 transition-colors">
-                  <div className="bg-gray-700 w-10 h-10 rounded-full flex items-center justify-center">T</div>
+                <a href="https://tiktok.com/@AvoriFi" target="_blank" rel="noopener noreferrer" className="text-[#8892B0] hover:text-[#64FFDA] transition-colors" title="TikTok">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+                  </svg>
+                </a>
+                <a href="https://linkedin.com/company/avori" target="_blank" rel="noopener noreferrer" className="text-[#8892B0] hover:text-[#64FFDA] transition-colors" title="LinkedIn">
+                  <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                  </svg>
                 </a>
               </div>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Product</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><a href="#" className="hover:text-white transition-colors">How it Works</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Tokenomics</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Roadmap</a></li>
-                <li><a href="#" className="hover:text-white transition-colors">Whitepaper</a></li>
+              <h4 className="font-semibold mb-4 text-[#CCD6F6]">Quick Links</h4>
+              <ul className="space-y-2">
+                <li>
+                  <a 
+                    href="#how-it-works" 
+                    className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+                  >
+                    How it Works
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#tokenomics" 
+                    className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+                  >
+                    Tokenomics
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#roadmap" 
+                    className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+                  >
+                    Roadmap
+                  </a>
+                </li>
+                <li>
+                  <a 
+                    href="#benefits" 
+                    className="text-[#8892B0] hover:text-[#64FFDA] transition-colors"
+                  >
+                    Benefits
+                  </a>
+                </li>
               </ul>
             </div>
-                <div>
-                  <h4 className="font-semibold mb-4">Support</h4>
-                  <ul className="space-y-2 text-gray-400">
-                    <li><a href="#" className="hover:text-white transition-colors">Help Center</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Contact Us</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Community</a></li>
-                    <li><a href="#" className="hover:text-white transition-colors">Status</a></li>
-                    <li><a href="#admin" className="hover:text-white transition-colors text-teal-400">Admin Panel</a></li>
-                  </ul>
-                </div>
           </div>
-          <div className="border-t border-gray-800 mt-8 pt-8">
+          <div className="border-t border-[#64FFDA]/10 mt-8 pt-8">
             <div className="flex flex-col md:flex-row justify-between items-center">
-              <p className="text-gray-400 text-sm mb-4 md:mb-0">
-                © 2024 $FUND. All rights reserved.
+              <p className="text-[#8892B0] text-sm mb-4 md:mb-0">
+                © 2025 Avori Labs. All rights reserved.
               </p>
-              <p className="text-gray-500 text-xs max-w-2xl">
+              <p className="text-[#8892B0]/80 text-xs max-w-2xl">
                 This website is for informational purposes only. Cryptocurrency investments are highly volatile and risky. 
                 Past performance does not guarantee future results. Please invest responsibly.
               </p>
