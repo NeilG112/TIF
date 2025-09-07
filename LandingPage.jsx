@@ -18,10 +18,8 @@ const LandingPage = () => {
           emails.push({ id: docSnap.id, ...docSnap.data() });
         });
         setRegisteredEmails(emails);
-        console.log("Fetched emails:", emails); // Debug
       } catch (error) {
         setRegisteredEmails([]);
-        console.error("Error fetching emails from Firestore:", error); // Debug
       }
     };
     fetchEmails();
@@ -49,7 +47,6 @@ const LandingPage = () => {
         email,
         registeredAt: new Date().toISOString(),
       });
-      console.log("Email registered with ID:", docRef.id); // Debug
       setShowSuccess(true);
       setEmail('');
       // Refresh list
@@ -60,7 +57,6 @@ const LandingPage = () => {
       });
       setRegisteredEmails(emails);
     } catch (error) {
-      console.error("Error registering email:", error); // Debug
       alert('Failed to register email. See console for details.');
     }
     setIsLoading(false);
