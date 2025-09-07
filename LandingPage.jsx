@@ -18,8 +18,10 @@ const LandingPage = () => {
           emails.push({ id: docSnap.id, ...docSnap.data() });
         });
         setRegisteredEmails(emails);
+        console.log("Fetched emails:", emails); // Debug
       } catch (error) {
         setRegisteredEmails([]);
+        console.error("Error fetching emails from Firestore:", error); // Debug
       }
     };
     fetchEmails();
@@ -43,10 +45,11 @@ const LandingPage = () => {
         return;
       }
       // Add to Firestore
-      await addDoc(collection(db, 'registeredEmails'), {
+      const docRef = await addDoc(collection(db, 'registeredEmails'), {
         email,
         registeredAt: new Date().toISOString(),
       });
+      console.log("Email registered with ID:", docRef.id); // Debug
       setShowSuccess(true);
       setEmail('');
       // Refresh list
@@ -57,7 +60,8 @@ const LandingPage = () => {
       });
       setRegisteredEmails(emails);
     } catch (error) {
-      alert('Failed to register email.');
+      console.error("Error registering email:", error); // Debug
+      alert('Failed to register email. See console for details.');
     }
     setIsLoading(false);
   };
