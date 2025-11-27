@@ -1,4 +1,4 @@
-﻿#  Registration Website
+#  Registration Website
 
 A modern, responsive website for  token waitlist registration.
 
@@ -32,3 +32,6 @@ This website can be deployed directly to GitHub Pages:
 - Admin panel for managing registrations
 - Export functionality (JSON/CSV)
 - Modern UI with smooth animations
+
+
+In my opinion this project wae very fun to do and also very fun to learn!
